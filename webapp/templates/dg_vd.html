@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ test</title>
+</head>
+<body>
+    <h1>jinja test : {{title | safe}}</h1>
+
+    {{ "}}>> <strong>Strong</strong>" | escape}}
+
+    <pre>
+        {% if True %}
+            TTT
+        {% endif %}
+            qqq
+    </pre>
+
+    <ul>
+        {% for item in lst %}
+            <li>{{item[0]}}: {{item[1]}}</li>
+        {% endfor %}
+    </ul>
+
+    {% for title, name in lst %}
+    <li>{{title}}: {{name}}</li>
+{% endfor %}
+    
+</body>
+</html>
