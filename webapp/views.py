@@ -4,11 +4,15 @@ from sqlalchemy.orm import subqueryload, joinedload
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.sql import func
 from webapp import app
+from webapp import models
+from webapp import init_db
 from webapp.classes import FormInput
 from webapp.init_db import db_session
 from webapp.models import User
 import os
-from werkzeug.utils import secure_filename
+from sqlalchemy import *
+#from werkzeug.utils import secure_filename
+from pymysql import *
 
 @app.route('/')
 def idx():
@@ -45,6 +49,7 @@ def regist_post():
     passwd = request.form.get('passwd')
     passwd2 = request.form.get('passwd2')
     nickname = request.form.get('nickname')
+    #print('정보입력 완료' 'email', 'paaswd', 'nickname') "Regist [get] 부분으로 넘어가짐. post??"
 
     if passwd != passwd2:
         flash("암호를 정확히 입력하세요!!")
@@ -65,7 +70,7 @@ def regist_post():
 def login():
     return render_template("login.html")
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST']) # 에러
 def login_post():
     email = request.form.get('email')
     passwd = request.form.get('passwd')

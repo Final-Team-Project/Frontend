@@ -7,7 +7,8 @@ import pymysql
 pymysql.install_as_MySQLdb()
 # Declare connection
 mysql_url = "mysql+pymysql://root:12345@localhost/user?charset=utf8"
-engine = create_engine(mysql_url, echo=True, convert_unicode=True)
+engine = create_engine(mysql_url,pool_recycle=500, pool_size=5, max_overflow=20, echo=False, echo_pool=True)
+print('mysql_url' '==== 접속 성공')
 
 # Declare & create Session
 db_session = scoped_session( sessionmaker(autocommit=False, autoflush=False, bind=engine) )
