@@ -14,9 +14,9 @@ from werkzeug.utils import secure_filename
 def idx():
     return render_template ("index.html")
 
-# @app.route('/mu')
-# def hellohtml():
-#     return render_template ("main.html")
+@app.route('/mu')
+def hellohtml():
+    return render_template ("blog-details.html")
 
 @app.route('/chart')
 def chart():
