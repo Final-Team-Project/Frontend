@@ -12,6 +12,8 @@ class User(Base):
 
     def __init__(self, email=None, passwd=None, nickname='손님', makeSha=False):
         self.email = email
+        self.passwd = passwd
+        self.nickname = nickname
         if makeSha:
             self.passwd = func.sha2(passwd, 256)
         else:
@@ -20,4 +22,4 @@ class User(Base):
     print('정보입력 성공')
 
     def __repr__(self):
-        return 'User %s, %r, %r, %r' % (self.id, self.email, self.passwd, self.nickname)
+        return 'User %s, %r, %r, %r' % (id, self.email, self.passwd, self.nickname)

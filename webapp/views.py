@@ -57,17 +57,20 @@ def regist_post():
         flash("암호를 정확히 입력하세요!!")
         return render_template("regist.html", email=email, nickname=nickname)
     else:
+        #id = 2
         u = User(email, passwd, nickname, True)
         u.passwd = passwd
         u.email = email
         u.nickname = nickname
+        print('1')
         try:
             db_session.add(u)
+            print('가입됨?')
             db_session.commit()
-
+            print('2')
         except:
             db_session.rollback();
-
+            print('3')
         flash("%s 님, 가입을 환영합니다!" % nickname)
         return redirect("/login")
 
