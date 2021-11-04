@@ -20,6 +20,9 @@ def idx():
 
 @app.route('/mu')
 def hellohtml():
+    u = User('abc@efg.com', 'hong')
+    db_session.add(u)
+    db_session.commit(u)
     return render_template ("blog-details.html")
 
 @app.route('/chart')
@@ -38,7 +41,6 @@ def method():
         name = request.form["name"]
         return "POST data({},{})".format(num, name)
 
-
 @app.route('/regist', methods=['GET'])
 def regist():
     return render_template("regist.html")
@@ -56,9 +58,12 @@ def regist_post():
         return render_template("regist.html", email=email, nickname=nickname)
     else:
         u = User(email, passwd, nickname, True)
+        u.passwd = passwd
+        u.email = email
+        u.nickname = nickname
         try:
             db_session.add(u)
-            db_session.commit() 
+            db_session.commit()
 
         except:
             db_session.rollback();
@@ -74,6 +79,7 @@ def login():
 def login_post():
     email = request.form.get('email')
     passwd = request.form.get('passwd')
+    print('===================')
     u = User.query.filter('email = :email and passwd = sha2(:passwd, 256)').params(email=email, passwd=passwd).first()
     if u is not None:
         session['loginUser'] = { 'userid': u.id, 'name': u.nickname }

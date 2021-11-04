@@ -20,4 +20,4 @@ class User(Base):
     print('정보입력 성공')
 
     def __repr__(self):
-        return 'User %s, %r, %r' % (self.id, self.email, self.nickname)
+        return 'User %s, %r, %r, %r' % (self.id, self.email, self.passwd, self.nickname)
