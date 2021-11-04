@@ -60,7 +60,6 @@ def regist_post():
     else:
         #id = 2
         u = User(email, passwd, nickname, True)
-<<<<<<< HEAD
         u.passwd = passwd
         u.email = email
         u.nickname = nickname
@@ -73,16 +72,6 @@ def regist_post():
         except:
             db_session.rollback();
             print('3')
-=======
-        print(u)
-        try:
-            db_session.add(u)
-            db_session.commit() 
-
-        except:
-            db_session.rollback()
-
->>>>>>> 31836a22d5ff5cd2214665b9d5849d6bb4d75fdd
         flash("%s 님, 가입을 환영합니다!" % nickname)
         return redirect("/login")
 
