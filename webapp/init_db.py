@@ -6,7 +6,11 @@ import pymysql
 
 pymysql.install_as_MySQLdb()
 # Declare connection
+<<<<<<< HEAD
 mysql_url = "mysql+pymysql://root:12345@localhost:3306/user?charset=utf8"
+=======
+mysql_url = "mysql+pymysql://root:1111@localhost:3306/world?charset=utf8"
+>>>>>>> 31836a22d5ff5cd2214665b9d5849d6bb4d75fdd
 engine = create_engine(mysql_url,pool_recycle=500, pool_size=5, max_overflow=20, echo=False, echo_pool=True)
 print('mysql_url' '==== 접속 성공')
 

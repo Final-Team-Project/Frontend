@@ -51,7 +51,8 @@ def regist_post():
     passwd = request.form.get('passwd')
     passwd2 = request.form.get('passwd2')
     nickname = request.form.get('nickname')
-    #print('정보입력 완료' 'email', 'paaswd', 'nickname') "Regist [get] 부분으로 넘어가짐. post??"
+    print(email, passwd, passwd2, nickname)
+    
 
     if passwd != passwd2:
         flash("암호를 정확히 입력하세요!!")
@@ -59,6 +60,7 @@ def regist_post():
     else:
         #id = 2
         u = User(email, passwd, nickname, True)
+<<<<<<< HEAD
         u.passwd = passwd
         u.email = email
         u.nickname = nickname
@@ -71,6 +73,16 @@ def regist_post():
         except:
             db_session.rollback();
             print('3')
+=======
+        print(u)
+        try:
+            db_session.add(u)
+            db_session.commit() 
+
+        except:
+            db_session.rollback()
+
+>>>>>>> 31836a22d5ff5cd2214665b9d5849d6bb4d75fdd
         flash("%s 님, 가입을 환영합니다!" % nickname)
         return redirect("/login")
 
@@ -78,12 +90,12 @@ def regist_post():
 def login():
     return render_template("login.html")
 
-@app.route('/login', methods=['POST']) # 에러
+@app.route('/login', methods=['POST'])
 def login_post():
     email = request.form.get('email')
     passwd = request.form.get('passwd')
-    print('===================')
-    u = User.query.filter('email = :email and passwd = sha2(:passwd, 256)').params(email=email, passwd=passwd).first()
+
+    u = User.query.filter_by(email=email, passwd=passwd).first()
     if u is not None:
         session['loginUser'] = { 'userid': u.id, 'name': u.nickname }
         if session.get('next'):
