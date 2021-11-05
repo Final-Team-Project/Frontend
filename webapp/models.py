@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship, backref
 from webapp.init_db import Base
 
 class User(Base):
-    __tablename__ = 'JIN'
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True)  
     email = Column(String, unique=True)
     passwd = Column(Integer)
