@@ -20,9 +20,6 @@ def idx():
 
 @app.route('/mu')
 def hellohtml():
-    u = User('abc@efg.com', 'hong')
-    db_session.add(u)
-    db_session.commit(u)
     return render_template ("blog-details.html")
 
 @app.route('/chart')

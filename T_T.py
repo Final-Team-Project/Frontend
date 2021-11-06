@@ -1,8 +1,8 @@
 from webapp import app
 '''
-conda install flask
-conda install sqlalchemy
-conda install warkzeug
+pip install flask
+pip install sqlalchemy
+pip install warkzeug
 '''
 
 
