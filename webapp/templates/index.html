@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  
+
 
   <title>멍의보감 - Main</title>
   <meta content="" name="description">
@@ -15,7 +15,9 @@
   <link href="static/images/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -37,7 +39,6 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex justify-content-between">
@@ -47,14 +48,17 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="static/images/logo.png" alt="" class="images-fluid"></a>-->
       </div>
-      <div class = 'sign_in'>
+      <div class='sign_in'>
         <a href="login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">login</a>
         <a href="regist" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">sign up</a>
-    </div> 
-      
+        {%if userid%}
+        {{userid}} <button type="button" onclick="location.href='/logout' ">로그 아웃</button>
+        {%endif%}
+      </div>
+
   </header><!-- End Header -->
 
-  
+
 
   <!-- ======= hero Section ======= -->
   <section id="hero">
@@ -285,7 +289,7 @@
       </div>
     </div><!-- End Services Section -->
 
-    
+
     <!-- ======= Rviews Section ======= -->
     <div class="reviews-area">
       <div class="row g-0">
@@ -336,7 +340,8 @@
                     <a href="http://www.mkhealth.co.kr/news/articleView.html?idxno=54607">강아지와 고양이도 가을 탈까?</a>
                   </h4>
                   <p>
-                    가을 타는 현상은 정신의학적 용어로 설명하면 '계절성 우울증'(Seasonal Affective Disorder, SAD)이라고 한다. 봄이나 가을 등 특정 계절에 일시적으로 우울감과 활동 침체가 나타나는 질환이다....
+                    가을 타는 현상은 정신의학적 용어로 설명하면 '계절성 우울증'(Seasonal Affective Disorder, SAD)이라고 한다. 봄이나 가을 등 특정 계절에 일시적으로
+                    우울감과 활동 침체가 나타나는 질환이다....
                   </p>
                 </div>
                 <span>
@@ -433,7 +438,8 @@
   </footer><!-- End  Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

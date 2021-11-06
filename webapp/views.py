@@ -93,9 +93,8 @@ def login_post():
         flash("해당 사용자가 없습니다!!")
         return render_template("login.html", email=email)
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 def logout():
-    if session.get('loginUser'):
-        del session['loginUser']
-
+    session.pop('userid', None)
     return redirect('/')
+
