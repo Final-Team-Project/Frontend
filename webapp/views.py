@@ -22,6 +22,10 @@ def idx():
 def hellohtml():
     return render_template ("blog-details.html")
 
+@app.route('/tete')
+def testdef():
+    return render_template ('dg_vd.html')
+
 @app.route('/chart')
 def chart():
     return render_template("blog.html")
