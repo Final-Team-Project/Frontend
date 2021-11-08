@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, Float, String, DateTime, TIMESTAMP, ForeignKey, PrimaryKeyConstraint, func, Table
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy import Column, Integer, String, func
 from webapp.init_db import Base
 
 class User(Base):
